@@ -1,4 +1,4 @@
-# test_tuya
+
 # Test Data Engineer TUYA
 ![Logo Tuya](images/tuya.png)
 
@@ -40,13 +40,21 @@ El proyecto cuenta con las siguientes clases:
 
 ```plaintext
 ├── README.md
+├── main.py
 ├── source
 │   ├── file_finder.py
 │   ├── html_processor.py
 │   ├── image_encoder.py
 │   └── report_generator.py
+│   └── test_image_enconder.py
 ├── samples
 │   ├── ejemplo1.html
+│   ├── ejemplo2.html
+│   ├── AWS _ Cloud Computing - Servicios de informática en la nube.html
+│   ├── FINVIZ.com - Stock Screener.html
+│   ├── GuruFocus _ Stock Market Research, Data and Tools.html
+│   ├── Platzi_ Cursos Online de programación, AI, data science y más.html
+│   ├── Yo tengo _ Tuya.html
 ├── tests
 │   └── test_processor.py
 ├── images
@@ -66,13 +74,13 @@ Explica cómo instalar las herramientas necesarias (en este caso, basta con tene
 Para ejecutar el proyecto, abre una terminal y ejecuta:
 ```bash
 python src/main.py --input /ruta/a/tu/directorio_o_archivos
-
+```
 
 #### 5. Ejemplos
 Incluye ejemplos de uso, fragmentos de salida o capturas de pantalla:
 ```markdown
 ## Ejemplos de Uso 📸
-
+```
 **Ejemplo de archivo HTML original:**
 ```html
 <html>
@@ -80,5 +88,5 @@ Incluye ejemplos de uso, fragmentos de salida o capturas de pantalla:
     <img src="imagenes/foto.png" alt="Descripción">
   </body>
 </html>
-
+```
 

@@ -1,14 +1,16 @@
+# source/image_encoder.py
 import base64
+import os
 
-# definimos la clase
-#recibe la ruta, devuelve la cadena en base64 y si hay error devuelve None
-#Lo convertimos en str y si está malo tenemos el error.
 class ImageEncoder:
-    def encode_image(self, image_path: str) -> str:
+    def encode_image(self, image_path):
         try:
             with open(image_path, "rb") as image_file:
-                encoded = base64.b64encode(image_file.read()).decode("utf-8")
-                return encoded
+                encoded_string = base64.b64encode(image_file.read()).decode('utf-8')
+                return encoded_string
+        except FileNotFoundError:
+            print(f"Error: No se pudo encontrar la imagen en '{image_path}'")
+            return None
         except Exception as e:
-            print(f"[ERROR] No se pudo codificar la imagen {image_path}: {e}")
+            print(f"Error al codificar la imagen '{image_path}': {e}")
             return None
