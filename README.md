@@ -1,6 +1,6 @@
 # test_tuya
 # Test Data Engineer TUYA
-(images/tuya.png)
+![Logo Tuya](images/tuya.png)
 
 # Punto número uno
 
@@ -22,12 +22,12 @@ Este proyecto se encarga de recorrer archivos HTML para extraer imágenes refere
 - Implementación de dos métodos para extraer imágenes: expresiones regulares y `html.parser`.
 - Programación orientada a objetos con principios SOLID.
 - Manejo robusto de errores, registrando imágenes que se procesen correctamente y aquellas que fallen. Generando un objeto que contenga la lista de imágenes procesadas de forma exitosa y las que fallaron:
-
+```plaintext
 {
-success: {},
-fail: {}
+    success: {},
+    fail: {}
 } 
-
+```
 ## Arquitectura y Diseño 🛠
 
 El proyecto cuenta con las siguientes clases:
@@ -40,18 +40,19 @@ El proyecto cuenta con las siguientes clases:
 
 ```plaintext
 ├── README.md
-├── src
+├── source
 │   ├── file_finder.py
 │   ├── html_processor.py
 │   ├── image_encoder.py
 │   └── report_generator.py
 ├── samples
 │   ├── ejemplo1.html
-│   └── imagenes/
 ├── tests
 │   └── test_processor.py
+├── images
+    ├── tuya.png
 └── .gitignore
-
+```
 
 #### 4. Instalación y Uso
 Explica cómo instalar las herramientas necesarias (en este caso, basta con tener Python) y cómo ejecutar el proyecto:
