@@ -1,3 +1,4 @@
+# Creamos el procesador de los archivos .html para convertir los <img> en base64
 import os
 import base64
 import urllib.request
@@ -6,6 +7,7 @@ from urllib.parse import urlparse
 from source.image_encoder import ImageEncoder
 from source.report_generator import ReportGenerator
 
+# Del enconder recibimos el objeto, e inicializamos dos diccionarios.
 class HTMLProcessor:
     def __init__(self, encoder: ImageEncoder):
         self.encoder = encoder
@@ -16,6 +18,7 @@ class HTMLProcessor:
         parsed = urlparse(src)
         return parsed.scheme in ("http", "https")
 
+# Abrimos la imagen, verificamos si el request es OK, codificamos y devolvemos el contenido.
     def encode_remote_image(self, url, verbose=False):
         try:
             with urllib.request.urlopen(url) as response:
@@ -32,6 +35,7 @@ class HTMLProcessor:
                 print(f"Error al descargar imagen remota {url}: {e}")
             return None, None
 
+# Leemos el contenido html, buscamos la etiqueta <img>, validamos si el contenido es local o remoto.
     def process_file(self, html_path: str, output_dir: str):
         self.success = {}
         self.fail = {}
@@ -85,7 +89,6 @@ class HTMLProcessor:
                 self.modified_html += f"</{tag}>"
 
             def handle_startendtag(self, tag, attrs):
-                # Similar lógica para <img ... /> autocontenida
                 if tag.lower() == "img":
                     attrs_dict = dict(attrs)
                     src = attrs_dict.get("src", "")
@@ -117,13 +120,13 @@ class HTMLProcessor:
         parser = ImgParser(self)
         parser.feed(content)
 
-        # Guardar archivo de salida
+        # Guardamos los archivos de salida, si no existe la carpeta, la creamos y los guardamos, en el lugar dónde indiquemos en el main.py
         os.makedirs(output_dir, exist_ok=True)
         output_path = os.path.join(output_dir, os.path.basename(html_path))
         with open(output_path, "w", encoding="utf-8") as out_file:
             out_file.write(parser.modified_html)
 
-        # Generar reporte
+        # Generamos el reporte con las imagenens procesadas o fallidas
         report_generator = ReportGenerator()
         report = report_generator.generate_report(self.success, self.fail)
         report_generator.print_report()
