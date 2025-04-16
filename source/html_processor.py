@@ -16,18 +16,20 @@ class HTMLProcessor:
         parsed = urlparse(src)
         return parsed.scheme in ("http", "https")
 
-    def encode_remote_image(self, url):
+    def encode_remote_image(self, url, verbose=False):
         try:
             with urllib.request.urlopen(url) as response:
                 if response.status != 200:
-                    print(f"Error al acceder {url}: status {response.status}")
+                    if verbose:
+                        print(f"Error al acceder {url}: status {response.status}")
                     return None, None
                 data = response.read()
                 content_type = response.headers.get("Content-Type", "image/png")
                 encoded = base64.b64encode(data).decode("utf-8")
                 return encoded, content_type
         except Exception as e:
-            print(f"Error al descargar imagen remota {url}: {e}")
+            if verbose:
+                print(f"Error al descargar imagen remota {url}: {e}")
             return None, None
 
     def process_file(self, html_path: str, output_dir: str):

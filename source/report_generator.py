@@ -13,11 +13,12 @@ class ReportGenerator:
             "fail": self.fail
         }
 
-    def print_report(self):
-        print("\nImágenes Procesadas con Éxito:")
-        for item in self.success:
-            print(f"Imagen: {item['image']} - Estado: {item['status']}")
+    def print_report(self, verbose=False):
+        if verbose:
+            print("\nImágenes Procesadas con Éxito:")
+            for item in self.success:
+                print(f"Imagen: {item['image']} - Estado: {item['status']}")
 
-        print("\nImágenes que Fallaron:")
-        for item in self.fail:
-            print(f"Imagen: {item['image']} - Estado: {item['status']}")
+                print("\nImágenes que Fallaron:")
+            for item in self.fail:
+                print(f"Imagen: {item['image']} - Estado: {item['status']}")
