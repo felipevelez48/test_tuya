@@ -102,7 +102,7 @@ Instalación y Uso 🔧
 Clonar el repositorio:
 
 ```bash
-git clone https://github.com/tu-usuario/tuya_project.git
+git clone https://github.com/felipevelez48/test_tuya.git
 cd tuya_project
 ```
 Ejecutar el procesador:
