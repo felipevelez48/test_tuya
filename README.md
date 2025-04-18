@@ -40,7 +40,7 @@
 
 ## Arquitectura y Diseño 🛠
 
-El proyecto se compone de dos componentes principales:
+El proyecto está conformado por dos elementos clave:
 
 ### 1. Procesamiento HTML
 - **Objetivo:** Recorrer archivos HTML para codificar imágenes en Base64 y reemplazar la referencia en el HTML.  
@@ -95,7 +95,7 @@ El proyecto se compone de dos componentes principales:
 #instalación-y-uso
 Instalación y Uso 🔧
 ## Requisitos
-- **Python 3.x instalado.**
+- **Python ≥ 3.8 instalado.**
 - **(Opcional) Un entorno virtual (virtualenv, venv, etc.).**
 
 ## Procesador de HTML
